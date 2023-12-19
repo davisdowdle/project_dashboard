@@ -70,7 +70,7 @@ if stat == 'Trade Ratio':
 df = gdp[gdp['Entity'].isin(countries)].sort_values(col, ascending = False)
 
 fig = plt.figure(figsize=(10, 4))
-ax = sns.barplot(df, x = 'Entity', y = col)
+ax = sns.barplot(df, x = 'Entity', y = col, palette = 'Paired')
 for index, v in enumerate(df[col]):
     ax.text(index, v, str(v), ha='center')
 plt.title(f"{stat} for Country Selection")
@@ -125,7 +125,7 @@ if var == 'Trade Ratio':
     yvar = 'Ratio'
 
 fig = plt.figure(figsize=(10, 10))
-sns.boxplot(df, x = 'Region', y = yvar)
+sns.boxplot(df, x = 'Region', y = yvar, palette = 'tab10')
 plt.title(f"{var} Spread by Region")
 plt.xlabel('United Nations Region')
 plt.ylabel(var)
@@ -207,13 +207,13 @@ comp = {'Currency': [curr1, curr2],
 
 fig, axes = plt.subplots(1, 3, figsize=(12, 6))
 
-sns.barplot(x = 'Currency', y = 'Count', data = comp, ax = axes[0])
+sns.barplot(x = 'Currency', y = 'Count', data = comp, ax = axes[0], palette = 'Set2')
 axes[0].set_title('Number of Countries')
 
-sns.barplot(x = 'Currency', y='Average GDP', data = comp, ax = axes[1])
+sns.barplot(x = 'Currency', y='Average GDP', data = comp, ax = axes[1], palette = 'Set2')
 axes[1].set_title('Average GDP')
 
-sns.barplot(x = 'Currency', y='Average Ratio', data = comp, ax = axes[2])
+sns.barplot(x = 'Currency', y='Average Ratio', data = comp, ax = axes[2], palette = 'Set2')
 axes[2].set_title('Average Trade Ratio')
 
 st.pyplot(fig)
